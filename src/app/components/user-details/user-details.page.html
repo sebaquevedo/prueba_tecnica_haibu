@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title>userDetails</ion-title>
+
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Volver</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="information">
+        <ion-card-header>
+            <ion-card-subtitle></ion-card-subtitle>
+            <ion-card-title>{{information.nombre}} {{information.apellido}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-item>
+                <ion-label>{{information.rut}}</ion-label>
+                <ion-chip>
+                    <ion-label *ngIf=valid color="secondary">rut valido</ion-label>
+                    <ion-label *ngIf=!valid color="warning">rut no valido</ion-label>
+                </ion-chip>
+                <ion-icon *ngIf=valid slot="end" name="checkmark-circle"></ion-icon>
+                <ion-icon *ngIf=!valid slot="end" name="close-circle"></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-label>Direccion : </ion-label>
+                <ion-label>{{information.direccion.calle}}</ion-label>
+                <ion-label>{{information.direccion.numero}}</ion-label>
+                <ion-label>{{information.direccion.nombre}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>telefono: </ion-label>
+                <ion-label>{{information.telefono}} </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{information.fechaNacimiento}}</ion-label>
+                <ion-chip>
+                    <ion-label *ngIf=validDate color="secondary"> valida</ion-label>
+                    <ion-label *ngIf=!validDate color="warning"> no valida</ion-label>
+                </ion-chip>
+                <ion-icon *ngIf=validDate slot="end" name="checkmark-circle"></ion-icon>
+                <ion-icon *ngIf=!validDate slot="end" name="close-circle"></ion-icon>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
