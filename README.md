@@ -9,3 +9,6 @@ Rut.js
 
 # Libreria Custom
 date-validator.js
+
+Sebastian Quevedo
+
